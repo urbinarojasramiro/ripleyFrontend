@@ -1,0 +1,32 @@
+<form (ngSubmit)="login()" autocomplete="off" [formGroup]="miFormulario">
+        <p-card>
+            <h3>Ingresa a tu cuenta</h3>
+            <small id="username2-help" class="p-error" *ngIf="campoEsValido('rut')">El RUT es obligatorio.</small>
+            <div class="p-field p-grid">
+                <label for="firstname3" class="p-col-fixed" style="width:100px">RUT</label>
+                <div class="p-col">
+                    <input class="form-control" 
+                            type="text" 
+                            formControlName="rut"
+                            pInputText 
+                            style="width:200px"> 
+                </div>
+            </div>
+            <small id="username2-help" class="p-error" *ngIf="campoEsValido('password')">El password es obligatorio.</small>
+            <div class="p-field p-grid">
+                <label for="lastname3" class="p-col-fixed" style="width:100px">Clave</label>
+                <div class="p-col">
+                    <p-password class="form-control" 
+                                [feedback]="false"
+                                formControlName="password"></p-password>
+                </div>
+            </div>
+            <button pButton type="button" type="submit" label="Ingresar"></button>
+            <ng-template pTemplate="footer">
+                <div class="p-text-center"><a style="color:white"routerLink="/auth/registro">Crea una cuenta aquí</a></div>
+            </ng-template>
+            
+        </p-card>
+</form>
+
+

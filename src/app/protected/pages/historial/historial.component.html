@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+<div *ngIf="historial.length > 0">
+    <div class="pgrid">
+        <div class="p-col-6 p-offset-3">
+            <table class="table table-hover animate__animated animate__fadeIn animate__faster">
+                <thead>
+                    <tr>
+                        <th> Nombre Destinatario </th>
+                        <th> RUT </th>
+                        <th> Banco </th>
+                        <th> Tipo de Cuenta </th>
+                        <th> Monto </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transferencia of historial; let i = index;">
+                        <td>{{ transferencia.nombre}}</td>
+                        <td>{{ transferencia.rut}}</td>
+                        <td>{{ transferencia.bancoDestino}}</td>
+                        <td>{{ transferencia.tipoCuenta }}</td>
+                        <td>{{ transferencia.monto}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="historial.length === 0">
+        <h5>No tiene historial de transferencia</h5>
+    </div>
+</div>
+
+

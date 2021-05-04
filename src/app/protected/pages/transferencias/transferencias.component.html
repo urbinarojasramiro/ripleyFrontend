@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+<form (ngSubmit)="crearTransferencia()" autocomplete="off" [formGroup]="miFormulario">
+    <div class="pgrid">
+        <div class="p-col-6 p-offset-3">
+            <p-card>
+                <h3>Transferir</h3>
+                <small id="username2-help" class="p-error" *ngIf="campoEsValido('destinatario')">El Destinatario es obligatorio.</small>
+                <div class="p-field p-grid">
+                    <label for="firstname3" class="p-col-fixed" style="width:100px">Buscar Destinatario</label>
+                    <div class="p-col">
+                        <p-dropdown [options]="destinatarios" 
+                                    [(ngModel)]="selectedDestinatario"
+                                    formControlName="destinatario"
+                                    placeholder="Seleccione un Destinatario" 
+                                    optionLabel="nombre" 
+                                    ></p-dropdown>
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="lastname3" class="p-col-fixed" style="width:100px">Datos del destinatario</label>
+                    <div class="p-col">
+                        <span> Nombre: {{ selectedDestinatario.nombre }}</span> <br>
+                        <span> Correo: {{ selectedDestinatario.email }}</span><br>
+                        <span> Banco: {{ selectedDestinatario.bancoDestino }}</span><br>
+                        <span> Tipo Cuenta: {{ selectedDestinatario.tipoCuenta }}</span><br>
+                    </div>
+                </div>
+                <small id="username2-help" class="p-error" *ngIf="campoEsValido('monto')">El monto es obligatorio.</small>
+                <div class="p-field p-grid">
+                    <label for="lastname3" class="p-col-fixed" style="width:100px">Monto</label>
+                    <div class="p-col">
+                        <input class="form-control" 
+                                type="text" 
+                                pInputText 
+                                formControlName="monto"
+                                style="width:200px"> 
+                    </div>
+                </div>
+                <button pButton type="button" type="submit" label="Transferir"></button>
+                
+            </p-card>
+        </div>
+    </div>
+    
+</form>

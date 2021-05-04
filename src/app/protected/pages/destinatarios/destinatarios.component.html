@@ -1,0 +1,109 @@
+<app-menu></app-menu>
+<form (ngSubmit)="crearDestinatario()" autocomplete="off" [formGroup]="miFormulario">
+    <p-panel header="Ingresa los datos del destinatario">
+        <p-card>
+            <div class="card">
+                <div class="p-grid p-col-4 p-offset-3">
+                    <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+                        <p-card>                        
+                            <small id="username2-help" class="p-error" *ngIf="campoEsValido('rut')">El RUT es obligatorio.</small>
+                            <div class="p-field p-grid">
+                                <label for="firstname3" class="p-col-fixed" style="width:100px">RUT</label>
+                                <div class="p-col">
+                                    <input class="form-control" 
+                                            type="text" 
+                                            pInputText 
+                                            formControlName="rut"
+                                            style="width:200px"> 
+                                </div>
+                            </div>
+                            <small id="username2-help" class="p-error" *ngIf="campoEsValido('email')">El email debe ser válido.</small>
+                            <div class="p-field p-grid">
+                                <label for="firstname3" class="p-col-fixed" style="width:100px">Correo</label>
+                                <div class="p-col">
+                                    <input class="form-control" 
+                                            type="text" 
+                                            pInputText 
+                                            formControlName="email"
+                                            style="width:200px"> 
+                                </div>
+                            </div>
+                            <small id="username2-help" class="p-error" *ngIf="this.miFormulario.controls.bancoDestino.errors">El nombre del banco destino es obligatorio.</small>
+                            <div class="p-field p-grid">
+                                <label for="lastname3" class="p-col-fixed" style="width:100px">Banco</label>
+                                <div class="p-col">
+                                    <p-dropdown [options]="bancos" 
+                                                [(ngModel)]="bancoSelected"
+                                                formControlName="bancoDestino"
+                                                placeholder="Seleccione un Banco" 
+                                                optionLabel="name" 
+                                                ></p-dropdown>
+                                </div>
+                            </div>
+                            <small id="username2-help" class="p-error" *ngIf="campoEsValido('numeroCuenta')">El número de cuenta es obligatorio.</small>
+                            <div class="p-field p-grid">
+                                <label for="lastname3" class="p-col-fixed" style="width:100px">N° De Cuenta</label>
+                                <div class="p-col">
+                                    <input class="form-control" 
+                                            type="text" 
+                                            pInputText 
+                                            formControlName="numeroCuenta"
+                                            style="width:200px"> 
+                                </div>
+                            </div>
+                        </p-card>
+                    </div>
+                    <div class="p-col-2">
+                        <p-divider layout="vertical">
+                        </p-divider>
+                    </div>
+                    <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+                        <p-card>
+                            <small id="username2-help" class="p-error" *ngIf="campoEsValido('nombre')">El nombre es obligatorio.</small>
+                            <div class="p-field p-grid">
+                                <label for="firstname3" class="p-col-fixed" style="width:100px">Nombre</label>
+                                <div class="p-col">
+                                    <input class="form-control" 
+                                            type="text" 
+                                            pInputText 
+                                            formControlName="nombre"
+                                            style="width:200px"> 
+                                </div>
+                            </div>
+                            
+                            <small id="username2-help" class="p-error" *ngIf="campoEsValido('telefono')">El teléfono es obligatorio.</small>
+                            <div class="p-field p-grid">
+                                <label for="firstname3" class="p-col-fixed" style="width:100px">Teléfono</label>
+                                <div class="p-col">
+                                    <input class="form-control" 
+                                            type="text" 
+                                            pInputText 
+                                            formControlName="telefono"
+                                            style="width:200px"> 
+                                </div>
+                            </div>
+                            <small id="username2-help" class="p-error" *ngIf="campoEsValido('tipoCuenta')">El Tipo de Cuenta es obligatorio.</small>
+                            <div class="p-field p-grid">
+                                <label for="firstname3" class="p-col-fixed" style="width:100px">Tipo de Cuenta</label>
+                                <div class="p-col">
+                                    <input class="form-control" 
+                                            type="text" 
+                                            pInputText 
+                                            formControlName="tipoCuenta"
+                                            style="width:200px"> 
+                                </div>
+                            </div>
+                            <div class="p-field p-grid">
+                                <button pButton type="button" type="submit" label="Crear"></button>
+                            </div>
+                        </p-card>
+                    </div>
+                    
+                </div>
+            </div>  
+        </p-card>
+        
+    </p-panel>
+    
+    
+</form>

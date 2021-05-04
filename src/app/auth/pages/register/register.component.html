@@ -1,0 +1,52 @@
+<form (ngSubmit)="register()" autocomplete="off" [formGroup]="miFormulario">
+    <p-card>
+        <h3>Ingresa a tu cuenta</h3>
+        <small id="username2-help" class="p-error" *ngIf="campoEsValido('rut')">El RUT es obligatorio.</small>
+        <div class="p-field p-grid">
+            <label for="firstname3" class="p-col-fixed" style="width:100px">RUT</label>
+            <div class="p-col">
+                <input class="form-control" 
+                        type="text" 
+                        pInputText 
+                        formControlName="rut"
+                        style="width:200px"> 
+            </div>
+        </div>
+        <small id="username2-help" class="p-error" *ngIf="campoEsValido('email')">El email debe ser válido.</small>
+        <div class="p-field p-grid">
+            <label for="firstname3" class="p-col-fixed" style="width:100px">Email</label>
+            <div class="p-col">
+                <input class="form-control" 
+                        type="text" 
+                        pInputText 
+                        formControlName="email"
+                        style="width:200px"> 
+            </div>
+        </div>
+        <small id="username2-help" class="p-error" *ngIf="campoEsValido('nombre')">El nombre es obligatorio.</small>
+        <div class="p-field p-grid">
+            <label for="firstname3" class="p-col-fixed" style="width:100px">Nombre</label>
+            <div class="p-col">
+                <input class="form-control" 
+                        type="text" 
+                        pInputText 
+                        formControlName="nombre"
+                        style="width:200px"> 
+            </div>
+        </div>
+        <small id="username2-help" class="p-error" *ngIf="campoEsValido('password')">El password es obligatorio.</small>
+        <div class="p-field p-grid">
+            <label for="lastname3" class="p-col-fixed" style="width:100px">Clave</label>
+            <div class="p-col">
+                <p-password class="form-control" 
+                            [feedback]="false"
+                            formControlName="password"
+                            ></p-password>
+            </div>
+        </div>
+        <button pButton type="button" type="submit" label="Registrarme"></button>
+        <ng-template pTemplate="footer">
+            <div class="p-text-center"><a style="color:white"routerLink="/auth/login">Ya tienes una cuenta?</a></div>
+        </ng-template>
+    </p-card>
+</form>
